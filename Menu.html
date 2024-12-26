@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kyoto Coffee House</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Josefin+Sans:wght@300;400;700&family=Poppins:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <!-- Container -->
+    <div class="container">
+      <!-- Navigation -->
+      <nav class="navbar">
+        <div class="logo"><a href="index.html">
+          <i class="fa-solid fa-mug-saucer"></i></a>
+          <div class="logo-text"><a href="index.html">
+            <span>Kyoto Coffee</span></a>
+            <a href="index.html">
+            <span>House</span></a>
+          </div>
+        </div>
+        <div class="navigation">
+            <a href="index.html">Home</a>
+            <a href="Menu.html">Menu</a>
+            <a href="Reservation.html">Reservation</a>
+            <a href="Location.html">Location</a>
+            <a href="about.html">About</a>
+          <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+      </nav>
+      <!-- End of Navigation -->
+
+      <!-- Landing -->
+      <!-- Menu -->
+      <section class="menu">
+        <div class="menu-left">
+            <h3 class="main-heading">Discover</h3>
+            <h1>Our Menu</h1>
+            <ul class="menu-list">
+           <h2>Hot Beverage</h2>              
+           <ul>
+                <li>Espresso</li>
+                <li>Double Espresso</li>
+                <li>Americano</li>
+                <li>Cappuccino</li>
+                <li>Café Latte</li>
+                <li>Mocha</li>
+                <li>Hot Chocolate</li>
+              </ul>
+              <br>
+              <h2>Cold Beverage</h2>
+              <ul>
+                <li>Iced Coffee</li>
+                <li>Iced Chai Latte</li>
+                <li>Iced Café Latte</li>
+                <li>Vegan Shake</li>
+              </ul>
+              <br>
+              <h2>Frappuccino</h2>
+              <ul>
+                <li>Oreo Frappe</li>
+                <li>Caramel Frappe</li>
+                <li>Café Vanilla Frappe</li>
+              </ul>
+              <br>
+                <h2>Smoothie</h2>
+              <ul>
+                <li>Vanilla Smoothie</li>
+                <li>Strawberry-Maccha Smoothie</li>
+                <li>Mixed Berries Smoothie</li>
+                <li>Blueberry-Chia Seed Smoothie.</li>
+              </ul>
+            </ul>
+<br>
+          </div>
+          <div class="menu-right">
+          <div class="menu-right-images">
+            <div class="menu-img-wrapper">     
+        <img src="images/image4.jpg" alt="" srcset="" onclick="toggleImageSize('images/image4.jpg')">         
+            </div>
+            <div class="menu-img-wrapper">
+                <img src="images/image5.jpg" alt="" srcset="" onclick="toggleImageSize('images/image5.jpg')"> 
+            </div>
+            <div class="menu-img-wrapper">
+                <img src="images/image6.jpg" alt="" srcset="" onclick="toggleImageSize('images/image6.jpg')"> 
+            </div>
+            <div class="menu-img-wrapper">
+                <img src="images/image7.jpg" alt="" srcset="" onclick="toggleImageSize('images/image7.jpg')"> 
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="pic" onclick="toggleImageSize('')">
+        <!-- Enlarged image will be displayed here -->
+        <img src="" id="enlarged-img">
+    </div>
+      <!-- Footer -->
+      <footer>
+        <p class="copyright">
+          &copy; All Rights Reserved. 2024. Kyoto coffee house
+        </p>
+      </footer>
+      <!-- End of Footer -->
+    </div>
+    <!-- End of Container -->
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        function toggleImageSize(imageSrc) {
+            const pic = document.querySelector('.pic');
+            const enlargedImage = document.getElementById('enlarged-img');
+            
+            if (imageSrc) {
+                enlargedImage.src = imageSrc;
+                pic.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            } else {
+                enlargedImage.src = '';
+                pic.style.display = 'none';
+                document.body.style.overflow = 'auto'; 
+        }
+    }
+    </script>
+  </body>
+</html>

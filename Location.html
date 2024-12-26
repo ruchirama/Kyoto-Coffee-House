@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kyoto Coffee House</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Josefin+Sans:wght@300;400;700&family=Poppins:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+    defer
+  ></script>
+  </head>
+  <body>
+    <!-- Container -->
+    <div class="container">
+      <!-- Navigation -->
+      <nav class="navbar">
+        <div class="logo"><a href="index.html">
+          <i class="fa-solid fa-mug-saucer"></i></a>
+          <div class="logo-text"><a href="index.html">
+            <span>Kyoto Coffee</span></a>
+            <a href="index.html">
+            <span>House</span></a>
+          </div>
+        </div>
+        <div class="navigation">
+          <a href="index.html">Home</a>
+          <a href="Menu.html">Menu</a>
+          <a href="Reservation.html">Reservation</a>
+          <a href="Location.html">Location</a>
+          <a href="about.html">About</a>
+          <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+      </nav>
+      <!-- End of Navigation -->
+
+      <div class="content">
+        <div id="map" style="height: 565px; width: 1000px;"></div>
+        </div>
+
+      <!-- Footer -->
+      <footer>
+        <p class="copyright">
+          &copy; All Rights Reserved. 2024. Kyoto coffee house
+        </p>
+      </footer>
+      <!-- End of Footer -->
+    </div>
+    <!-- End of Container -->
+
+    <script>let map;
+
+      async function initMap() {
+        // The location of Uluru
+        const initialPosition = { lat: 34.98665, lng: 135.75903 };
+      
+        // Request needed libraries.
+        //@ts-ignore
+        const { Map } = await google.maps.importLibrary("maps");
+        const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+      
+        // The map, centered at the initial position
+        map = new Map(document.getElementById("map"), {
+          zoom: 12,
+          center: initialPosition,
+          mapId: "Kyoto",
+        });
+      
+        // The initial marker, positioned at Uluru
+        const initialMarker = new AdvancedMarkerElement({
+          map: map,
+          position: initialPosition,
+          title: "Kyoto",
+        });
+      
+        // Additional markers
+        const markers = [
+          { lat: 34.9572336, lng: 135.7561193, title: "Takeda" },
+          { lat: 35.0172206, lng: 135.6702656, title: "Arashiyama" },
+          { lat: 35.0036889, lng: 135.7704381, title: "Kawaramachi" },
+          { lat: 35.0313209, lng: 135.7793676, title: "Hyakumamben" },
+          { lat: 34.9816549, lng: 135.8165652, title: "Yamashina" },
+        ];
+      
+        // Add additional markers
+        markers.forEach((markerPosition) => {
+          const marker = new AdvancedMarkerElement({
+            map: map,
+            position: markerPosition,
+            title: markerPosition.title,
+          });
+        });
+      }
+      
+      initMap();
+      
+      </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

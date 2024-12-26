@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kyoto Coffee House</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Josefin+Sans:wght@300;400;700&family=Poppins:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <!-- Container -->
+    <div class="container">
+      <!-- Navigation -->
+      <nav class="navbar">
+        <div class="logo"><a href="index.html">
+          <i class="fa-solid fa-mug-saucer"></i></a>
+          <div class="logo-text"><a href="index.html">
+            <span>Kyoto Coffee</span></a>
+            <a href="index.html">
+            <span>House</span></a>
+          </div>
+        </div>
+        <div class="navigation">
+            <a href="index.html">Home</a>
+            <a href="Menu.html">Menu</a>
+            <a href="Reservation.html">Reservation</a>
+            <a href="Location.html">Location</a>
+            <a href="about.html">About</a>
+          <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+      </nav>
+      <!-- End of Navigation -->
+      <!-- Contact -->
+      <section class="contact">
+        <div class="contact-left"></div>
+        <div class="contact-right">
+          <form>
+            <h1>Book a Table</h1>
+            <div class="input-group">
+              <input type="text" placeholder="Name" />
+              <input type="text" placeholder="Phone" />
+            </div>
+            <div class="input-group">
+              <input type="email" placeholder="Email Address" />
+              <input type="number" placeholder="No. of Seats" id="no-of-people" name="no-of-people" required >
+            </div>
+            <div class="input-group">
+              <textarea placeholder="Message"></textarea>
+              <button type="button" class="contact-btn">Appointment</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <!-- End of Contact -->
+
+      <!-- Footer -->
+      <footer>
+        <p class="copyright">
+          &copy; All Rights Reserved. 2024. Kyoto coffee house
+        </p>
+      </footer>
+      <!-- End of Footer -->
+    </div>
+    <!-- End of Container -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Attach the validateForm function to the button click event
+        document.querySelector('.contact-btn').addEventListener('click', function () {
+          validateForm();
+        });
+      });
+    
+      function validateForm() {
+        // Get the values of the input fields
+        const firstName = document.querySelector('input[placeholder="Name"]').value;
+        const phone = document.querySelector('input[placeholder="Phone"]').value;
+        const email = document.querySelector('input[placeholder="Email Address"]').value;
+        const noOfPeople = document.getElementById('no-of-people').value;
+    
+        // Check if any of the required fields is empty
+        if (!firstName || !phone || !email || !noOfPeople) {
+          alert("Please fill in all required fields.");
+          return false; // Prevent form submission
+        }
+    
+        // Validate phone number (allow only numeric characters)
+        if (!/^\d+$/.test(phone)) {
+          alert("Please enter a valid phone number.");
+          return false; // Prevent form submission
+        }
+    
+        // Validate email
+        if (!validateEmail(email)) {
+          alert("Please enter a valid email address.");
+          return false; // Prevent form submission
+        }
+    
+        // Other validation logic can be added here
+    
+        // If all validation passes, display alert with the inputted name and refresh the page
+        alert(`Thank you, ${firstName}! Your appointment for ${noOfPeople} people has been booked successfully!`);
+        location.reload();
+        return true;
+      }
+    
+      function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
